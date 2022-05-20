@@ -20,7 +20,7 @@ Generally easy to convert a project. Built-in components are few, and vanilla CS
 
 ### Ratings and Reviews
 #### Documentation
-Initially seemed good for built in components, but didn't end up being super helpful for other aspects. 6/10
+Initially seemed good, but didn't end up being super helpful for built-in components. 6/10
 
 #### Systems Requirements
 Next only requires the `next` package in a React project, and has no other dependencies.
