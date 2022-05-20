@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from "../styles/Home.module.css";
 
 const stores = [];
 const tableData = [];
 
-function Store (location, minCust, maxCust, avgCookiePerSale) {
+function Store(location, minCust, maxCust, avgCookiePerSale) {
   this.location = location;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -24,21 +25,21 @@ const paris = new Store('Paris', 20, 38, 2.3);
 // eslint-disable-next-line no-unused-vars
 const lima = new Store('Lima', 2, 16, 4.6);
 
-function randomHourlyCustomers(store){
+function randomHourlyCustomers(store) {
   let customersPerHour = (Math.floor(Math.random() * (store.maxCust - store.minCust + 1) + store.minCust))
   return customersPerHour;
 }
 
-function randomCookiesPerHour(store){
+function randomCookiesPerHour(store) {
   let hourlyCookieTotal = Math.ceil(randomHourlyCustomers(store) * (store.avgCookiePerSale))
   return hourlyCookieTotal;
 }
 
-function buildStoreSalesData(store){
+function buildStoreSalesData(store) {
   let total = 0;
   let storeArr = [];
   storeArr.push(store.location);
-  for(let i = 0; i < 14; i++){
+  for (let i = 0; i < 14; i++) {
     let hourlytotal = randomCookiesPerHour(store)
     total += hourlytotal;
     storeArr.push(hourlytotal)
@@ -50,46 +51,46 @@ function buildStoreSalesData(store){
 
 let SalesData = () => {
 
-  return(
-    <tbody>
-    <tr>
-      {
-        buildStoreSalesData(seattle).map((element , idx) => (
-          <td key={idx}>{element}</td>
-        ))
-      }
-    </tr>
-    <tr>
+  return (
+    <tbody className="tbody">
+      <tr className="tr">
         {
-          buildStoreSalesData(tokyo).map((element , idx) => (
+          buildStoreSalesData(seattle).map((element, idx) => (
             <td key={idx}>{element}</td>
           ))
         }
-    </tr>
-    <tr>
+      </tr>
+      <tr className="tr">
         {
-          buildStoreSalesData(dubai).map((element , idx) => (
+          buildStoreSalesData(tokyo).map((element, idx) => (
             <td key={idx}>{element}</td>
           ))
         }
-    </tr>
-    <tr>
+      </tr>
+      <tr className="tr">
         {
-          buildStoreSalesData(paris).map((element , idx) => (
+          buildStoreSalesData(dubai).map((element, idx) => (
             <td key={idx}>{element}</td>
           ))
         }
-    </tr>
-    <tr>
+      </tr>
+      <tr className="tr">
         {
-          buildStoreSalesData(lima).map((element , idx) => (
+          buildStoreSalesData(paris).map((element, idx) => (
             <td key={idx}>{element}</td>
           ))
         }
-    </tr>
+      </tr>
+      <tr className="tr">
+        {
+          buildStoreSalesData(lima).map((element, idx) => (
+            <td key={idx}>{element}</td>
+          ))
+        }
+      </tr>
     </tbody>
   )
-} 
+}
 
 export default SalesData;
 
