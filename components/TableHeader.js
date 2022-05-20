@@ -3,9 +3,9 @@ let headers = ['', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2
 function TableHeader() {
   console.log(headers)
   return (
-    <tr>{headers.map(header => (
-      <th key={header}>{header}</th>
-      ))}
+    <tr className="tr">{headers.map(header => (
+      <th key={header} className="th">{header}</th>
+    ))}
     </tr>
   )
 };
